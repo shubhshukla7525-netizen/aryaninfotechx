@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aryan Infotech | Laptop & Computer Services</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#0b0f1a;
+    --card:#11162a;
+    --blue:#1e88e5;
+    --light:#e0e0e0;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:white;}
+
+/* NAVBAR */
+nav{position:sticky;top:0;z-index:1000;background:#05070d;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;}
+nav h1{color:var(--blue);font-size:22px;}
+nav a{color:white;margin-left:15px;text-decoration:none;font-size:14px;}
+nav a:hover{color:var(--blue);}
+
+/* HERO */
+header{padding:80px 20px;text-align:center;background:linear-gradient(135deg,#0d47a1,#000);}
+header h2{font-size:clamp(28px,5vw,42px);color:#4fc3f7;}
+header p{margin-top:10px;font-size:clamp(14px,3vw,18px);}
+
+/* SECTION */
+section{padding:60px 20px;max-width:1100px;margin:auto;}
+.title{text-align:center;font-size:clamp(22px,4vw,32px);color:#4fc3f7;margin-bottom:40px;}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.card{background:var(--card);padding:25px;border-radius:15px;border:1px solid var(--blue);transition:.3s;}
+.card:hover{transform:translateY(-6px);box-shadow:0 0 18px var(--blue);}
+.card h3{margin-bottom:10px;color:#64b5f6;text-align:center;}
+.card form,input,textarea,button{width:100%;margin:8px 0;padding:10px;border-radius:8px;border:none;}
+.card button{background:var(--blue);color:white;font-weight:500;cursor:pointer;}
+.card button:hover{background:#1565c0;}
+
+/* ABOUT */
+.about{text-align:center;color:var(--light);font-size:clamp(14px,3vw,17px);line-height:1.8;}
+
+/* CONTACT */
+.contact{text-align:center;}
+.contact p{margin:10px 0;font-size:16px;}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;margin-top:20px;}
+.buttons a{padding:12px 25px;border-radius:30px;background:var(--blue);color:white;text-decoration:none;font-weight:500;transition:.3s;}
+.buttons a:hover{background:#1565c0;}
+
+/* FOOTER */
+footer{background:#05070d;text-align:center;padding:15px;font-size:13px;color:#aaa;}
+
+/* MOBILE FIX */
+@media(max-width:600px){nav{flex-direction:column;gap:5px;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <h1>AryAN INFOTECH</h1>
+    <div>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header>
+    <h2>Laptop & Computer Services</h2>
+    <p>Repair • Software • Data Recovery • Accessories</p>
+</header>
+
+<!-- SERVICES -->
+<section id="services">
+    <h2 class="title">Our Services</h2>
+    <div class="services">
+
+        <!-- Laptop Repair -->
+        <div class="card">
+            <h3>Laptop Repair</h3>
+            <form onsubmit="sendLaptop();return false;">
+                <input type="text" id="lapName" placeholder="Your Name" required>
+                <input type="text" id="lapProblem" placeholder="Laptop Problem" required>
+                <textarea id="lapMessage" placeholder="Additional details"></textarea>
+                <button type="submit">Send on WhatsApp</button>
+            </form>
+        </div>
+
+        <!-- Computer Repair -->
+        <div class="card">
+            <h3>Computer Repair</h3>
+            <input id="compName" placeholder="Your Name">
+            <textarea id="compIssue" placeholder="Computer Problem"></textarea>
+            <button onclick="sendComputer()">Send on WhatsApp</button>
+        </div>
+
+        <!-- Software Installation -->
+        <div class="card">
+            <h3>Software Installation</h3>
+            <input id="software" placeholder="Software Name">
+            <button onclick="sendSoftware()">Contact on WhatsApp</button>
+        </div>
+
+        <!-- Data Recovery -->
+        <div class="card">
+            <h3>Data Recovery</h3>
+            <textarea id="dataIssue" placeholder="Data problem"></textarea>
+            <button onclick="sendData()">Send WhatsApp</button>
+        </div>
+
+        <!-- Accessories -->
+        <div class="card">
+            <h3>Accessories</h3>
+            <input id="item" placeholder="Accessory Name">
+            <button onclick="sendAccessory()">Order on WhatsApp</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="title">About Us</h2>
+    <p class="about">
+        Aryan Infotech provides reliable and affordable laptop and computer solutions.
+        We focus on quality service, fast support, and customer satisfaction.
+    </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="title">Contact Us</h2>
+    <div class="contact">
+        <p>📞 9336978841</p>
+        <p>📧 aryanvimal56@gmail.com</p>
+        <div class="buttons">
+            <a href="tel:9336978841">Call Now</a>
+            <a href="mailto:aryanvimal56@gmail.com">Email</a>
+            <a href="https://wa.me/919336978841" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Aryan Infotech | All Rights Reserved
+</footer>
+
+<script>
+function sendLaptop(){
+    let name=document.getElementById("lapName").value;
+    let problem=document.getElementById("lapProblem").value;
+    let msg=document.getElementById("lapMessage").value;
+    let text=`Laptop Repair Request%0AName: ${name}%0AProblem: ${problem}%0AMessage: ${msg}`;
+    window.open(`https://wa.me/919336978841?text=${text}`,"_blank");
+}
+function sendComputer(){
+    let name=document.getElementById("compName").value;
+    let issue=document.getElementById("compIssue").value;
+    let text=`Computer Repair Request%0AName: ${name}%0AIssue: ${issue}`;
+    window.open(`https://wa.me/919336978841?text=${text}`,"_blank");
+}
+function sendSoftware(){
+    let s=document.getElementById("software").value;
+    window.open(`https://wa.me/919336978841?text=Software Installation: ${s}`,"_blank");
+}
+function sendData(){
+    let d=document.getElementById("dataIssue").value;
+    window.open(`https://wa.me/919336978841?text=Data Recovery Request: ${d}`,"_blank");
+}
+function sendAccessory(){
+    let i=document.getElementById("item").value;
+    window.open(`https://wa.me/919336978841?text=Accessory Required: ${i}`,"_blank");
+}
+</script>
+
+</body>
+</html>
